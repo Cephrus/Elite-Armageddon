@@ -8,7 +8,7 @@ public class EABlock extends Block
 	public EABlock(Material material, String unlocName, SoundType sound)
 	{
 		super(material);
-		this.setUnlocalizedName(unlocName);
+		this.setBlockName(unlocName);
 		this.setStepSound(sound);
 	}
 }

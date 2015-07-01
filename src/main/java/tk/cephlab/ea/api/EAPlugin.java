@@ -2,6 +2,7 @@ package tk.cephlab.ea.api;
 
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.world.World;
+import net.minecraftforge.client.IRenderHandler;
 
 public abstract class EAPlugin 
 {
@@ -28,8 +29,6 @@ public abstract class EAPlugin
 	 * ON CERTAIN INSTALLATIONS.
 	 */
 	public static int day = 0;
-	
-	static long oldTime = 0;
 	
 	/**
 	 * Minecraft Server Instance <br>
@@ -97,5 +96,13 @@ public abstract class EAPlugin
 	public void worldStop()
 	{
 		
+	}
+	
+	/**
+	 * Implement to add your own custom sky renderer.
+	 */
+	public IRenderHandler getCustomSkyRenderer()
+	{
+		return null;
 	}
 }

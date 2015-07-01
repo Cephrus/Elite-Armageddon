@@ -3,10 +3,13 @@ package tk.cephlab.ea.api;
 import net.minecraft.block.Block;
 import net.minecraft.block.Block.SoundType;
 import net.minecraft.block.material.Material;
+import net.minecraft.client.Minecraft;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
+import net.minecraft.server.MinecraftServer;
 import net.minecraft.world.World;
 import net.minecraft.world.chunk.Chunk;
-import net.minecraftforge.fml.common.registry.GameRegistry;
+import cpw.mods.fml.common.registry.GameRegistry;
 
 public final class EAToolkit 
 {
@@ -42,6 +45,29 @@ public final class EAToolkit
 			e.printStackTrace();
 			return -1;
 		}
+	}
+	
+	/**
+	 * 1.8 Compatibility Method
+	 * 
+	 * @param world World Object
+	 * @param coords BlockPos of Coordinates
+	 * @return Block at that location
+	 */
+	public static Block getBlockState(World world, BlockPos coords)
+	{
+		return world.getBlock(coords.xCoord, coords.yCoord, coords.zCoord);
+	}
+	
+	/**
+	 * 1.8 Compatibility Method
+	 * 
+	 * @param world World Object
+	 * @param coords BlockPos Coordinates
+	 */
+	public static void markBlockForUpdate(World world, BlockPos coords)
+	{
+		world.markBlockForUpdate(coords.xCoord, coords.yCoord, coords.zCoord);
 	}
 	
 	/**
