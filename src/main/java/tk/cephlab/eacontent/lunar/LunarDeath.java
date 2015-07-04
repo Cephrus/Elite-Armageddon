@@ -4,6 +4,7 @@ import net.minecraft.block.Block;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
+import tk.cephlab.ea.EALoader;
 import tk.cephlab.ea.api.EAPlugin;
 import tk.cephlab.ea.api.EAToolkit;
 import cpw.mods.fml.common.FMLCommonHandler;
@@ -33,6 +34,7 @@ public class LunarDeath extends EAPlugin
 	@SubscribeEvent
 	public void onTick(TickEvent.WorldTickEvent worldt)
 	{
+		if(!EALoader.isPluginLoaded(this))return;
 		World world = worldt.world;
 		super.internalTick();
 		
