@@ -29,6 +29,7 @@ public class BlockObsidianGlass extends BlockBreakable implements ITileEntityPro
 		super("saObsGlass", Material.glass, false);
 		this.setBlockName("saObsGlass");
 		this.setCreativeTab(CreativeTabs.tabTools);
+		this.setStepSound(soundTypeGlass);
 	}
 	
 	@Override
@@ -75,10 +76,10 @@ public class BlockObsidianGlass extends BlockBreakable implements ITileEntityPro
 	@SideOnly(Side.CLIENT)
 	public void registerBlockIcons(IIconRegister reg)
 	{
-		for (int i = 0; i < 47; i++) obsGlassIcns[i] = reg.registerIcon("genuine-easapoc:woodGlass_" + (i+1));
-		reinGlass = reg.registerIcon("genuine-easapoc:glass");
-		nethGlass = reg.registerIcon("genuine-easapoc:reinforced");
-		pwrdGlass = reg.registerIcon("genuine-easapoc:pwrGlass");
+		for (int i = 0; i < 47; i++) obsGlassIcns[i] = reg.registerIcon("genuine-easapoc:obsidianGlass/ObsidianGlass_" + (i+1));
+		reinGlass = reg.registerIcon("genuine-easapoc:reinforced"); //TODO: make new texture
+		nethGlass = reg.registerIcon("genuine-easapoc:reinforced"); //TODO: make new texture
+		pwrdGlass = reg.registerIcon("genuine-easapoc:pwrGlass"); //TODO: make new texture
 	}
 	
 	@Override
@@ -141,6 +142,7 @@ public class BlockObsidianGlass extends BlockBreakable implements ITileEntityPro
 			int idBuilder = 0;
 			for (int i = 0; i <= 7; i++) idBuilder = idBuilder + (bitMatrix[i]?(i==0?1:(i==1?2:(i==2?4:(i==3?8:(i==4?16:(i==5?32:(i==6?64:128))))))):0);
 			return idBuilder>255||idBuilder<0?obsGlassIcns[0]:obsGlassIcns[textureRefByID[idBuilder]];
+			
 		}
 		else if(meta == 1) return reinGlass;
 		else if(meta == 2) return nethGlass;

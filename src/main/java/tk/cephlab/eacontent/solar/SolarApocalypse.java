@@ -48,16 +48,18 @@ public class SolarApocalypse extends EAPlugin
 	@SubscribeEvent
 	public void onTick(TickEvent.WorldTickEvent worldt)
 	{
-		if(worldt.phase != TickEvent.Phase.START) return;
+		//if(worldt.phase != TickEvent.Phase.START) return;
 		if(!EALoader.isPluginLoaded(this)) return;
 		World world = worldt.world;
 		
 		super.internalTick();
 		
 		if(world.provider.isSurfaceWorld()) // Only tick on Overworld
-		{	
+		{
 			if(day <= 4) phase = day;
 			else phase = 4;
+			
+			System.out.println(day);
 			
 			//if(phase == 1) blockBufferMax = 30;
 			//else if(phase == 2) blockBufferMax = 20;
